@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <form name="registrationForm" id="registrationElements" method="post">
+    <form action="" onsubmit="validateForm(event)">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" class="form-control" placeholder="Name" name="name" id="name" onblur="validateName(name)">
@@ -44,10 +44,13 @@
 
         <div class="form-group">
             <label for="gender">Gender</label>
-            <input type="radio" name="gender" value="male"> Male
-            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" id="male" name="gender" value="male" onblur="validateRadio(id)"> Male
+            <input type="radio" id="female" name="gender" value="female" onblur="validateRadio(id)"> Female
+            <div id="gender_error" style="display: none;">Gender is required</div>
         </div>
         <input type="submit" value="Submit">
+
+        <div id="success" style="display: none;">The form has been submitted</div>
     </form>
 </body>
 </html>
